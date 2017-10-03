@@ -10,9 +10,10 @@ you should use for the login:
 * User Name:`sa`
 * Password:{leave blank}
 
-Once you have figured out the correct queries for each step, 
-save a copy in a file called `src/main/resources/script.sql`. This will be how you submit this assignment. 
-If at any time you need to reset the database, you can restart your Spring Boot server.
+NOTE:
+The schema for all the tables is in `src/main/resources/schema-h2.sql` and can be viewed from the H2 console.
+Don't submit any changes to the schema file.  And, in all reality, you shouldn't be doing anything in there outside of
+experimenting for your own curiosity.
 
 ## Guided Walkthrough
 
@@ -102,7 +103,7 @@ Notice the difference in the returned table with the aliases?
 SELECT MIN(birthday) FROM people;
 ```
 
-## Strings
+#### Strings
 
 ```SQL
 SELECT UPPER (first_name), LOWER(last_name) FROM people;
@@ -145,7 +146,7 @@ SELECT homenumber, LEFT(homenumber, 3), RIGHT(homenumber, 2) FROM homes;
 SELECT LENGTH(address), CHAR_LENGTH(address) FROM homes;
 ```
 
-## Compare
+#### Compare
 
 ```SQL
 SELECT first_name, last_name, YEAR(birthday) FROM people WHERE birthday >= '1970-07-06' AND birthday<='1987-07-06';
@@ -231,7 +232,7 @@ SELECT last_name, COUNT(*) FROM  people GROUP BY last_name;
 SELECT last_name, COUNT(*) FROM  people GROUP BY last_name ORDER BY NULL;
 ```
 
-## Inserting and Replacing Records
+#### Inserting and Replacing Records
 
 ```SQL
 INSERT INTO people (first_name, last_name, birthday, home_id)
@@ -250,7 +251,7 @@ DELETE FROM people WHERE first_name='Maya';
 SELECT * FROM people;
 ```
 
-## JOIN
+#### JOIN
 
 ```SQL
 INSERT INTO people (first_name, last_name, birthday)
@@ -299,12 +300,11 @@ Devise a report:
 Output all information for all people and their home information
 
 
-### Mini Movie Database
+## Mini Movie Database
 
-NOTE:
-The schema for all the tables is in `src/main/resources/schema-h2.sql` and can be viewed from the H2 console.
-Don't submit any changes to the schema file.  And, in all reality, you shouldn't be doing anything in there outside of
-experimenting for your own curiosity.
+Once you have figured out the correct queries for each step, 
+save a copy in a file called `src/main/resources/script.sql`. This will be how you submit this assignment. 
+If at any time you need to reset the database, you can restart your Spring Boot server.
 
 Add the following movies to the `movies` table using an insert statement:
 
